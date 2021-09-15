@@ -18,8 +18,23 @@ class NumberFormatter:
             result = "you entered wrong format"
 
         else:
-            result = int(self.input_numbers)
-            """
-            translator of valid data
-            """
+            result = 0
+            if self.input_numbers[0] == '-':
+                start_idx = 1
+                is_negative = True
+            elif self.input_numbers[0] == '+':
+                start_idx = 1
+                is_negative = False
+            else:
+                start_idx = 0
+                is_negative = False
+
+            for i in range(start_idx, len(self.input_numbers)):
+                place = 10 ** (len(self.input_numbers) - (i + 1))
+                digit = ord(self.input_numbers[i]) - ord('0')
+                result += place * digit
+
+            if is_negative:
+                return -1 * result
+
         return result
