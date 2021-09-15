@@ -9,8 +9,9 @@ class NumberFormatter:
         self.input_numbers = input_numbers
 
     def parseInt(self):
-        if self.input_numbers == "" or type(self.input_numbers) != str or type(
-                self.input_numbers) == float:
+        if self.input_numbers == "" or type(self.input_numbers) != str\
+            or type(self.input_numbers) == int and 2 <= len(self.input_numbers) <= 2 ** 32 - 1:
+
             """
             checking if a string is empty or not a string type or float type
             """
@@ -22,5 +23,3 @@ class NumberFormatter:
             translator of valid data
             """
         return result
-
-
